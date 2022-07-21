@@ -2,9 +2,7 @@ import 'dotenv/config';
 import app from './app';
 
 function bootServer(port: string | number) {
-  const server = app();
-
-  return server.listen(port, () => {
+  return app.listen(port, () => {
     console.log(`[server] running on port ${port}`);
   });
 }
