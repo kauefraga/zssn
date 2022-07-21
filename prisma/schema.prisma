@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Survivor {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+  age  Int
+  // lastLoc     Location @relation(fields: [locationLat], references: [lat])
+  // locationLat Int
+}
+
+// model Location {
+//   lat      Int        @unique
+//   lon      Int        @unique
+//   Survivor Survivor[]
+// }
