@@ -11,15 +11,18 @@ datasource db {
 }
 
 model Survivor {
-  id   Int    @id @default(autoincrement())
-  name String @unique
-  age  Int
-  // lastLoc     Location @relation(fields: [locationLat], references: [lat])
-  // locationLat Int
+  id         String   @id @default(cuid())
+  name       String   @unique
+  age        Int
+  gender     String
+  location   Location @relation(fields: [locationId], references: [id])
+  locationId Int
 }
 
-// model Location {
-//   lat      Int        @unique
-//   lon      Int        @unique
-//   Survivor Survivor[]
-// }
+model Location {
+  id       Int        @id @default(autoincrement())
+  name     String?    @unique
+  lat      Int
+  lon      Int
+  Survivor Survivor[]
+}
