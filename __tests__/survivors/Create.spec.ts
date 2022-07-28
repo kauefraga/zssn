@@ -34,6 +34,7 @@ describe('/v1/survivors/create', () => {
   });
 
   it('should return a survivor that already exists (200)', async () => {
+    // need to change it for an existing survivor on the database
     const survivor: ICreateSurvivorRequest = {
       name: 'John Doe',
       age: 30,
@@ -49,5 +50,13 @@ describe('/v1/survivors/create', () => {
       .send(survivor);
 
     expect(response.status).toBe(200);
+  });
+
+  it('should return an error (500)', async () => {
+    const response = await request(app)
+      .post('/v1/survivors/create')
+      .send({});
+
+    expect(response.status).toBe(500);
   });
 });
