@@ -2,12 +2,12 @@ version: '3'
 
 services:
   db:
-    image: postgres
+    image: 'postgres'
     environment:
-      POSTGRES_USER: "postgres"
+      POSTGRES_USER: 'postgres'
     ports:
-      - "5432:5432"
+      - '5432:5432'
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - './data/db:/var/lib/postgresql/data'
     env_file:
-      - ./.env
+      - './.env'
