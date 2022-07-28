@@ -21,8 +21,7 @@ model Survivor {
 
 model Location {
   id       Int        @id @default(autoincrement())
-  name     String?    @unique
-  lat      Int
-  lon      Int
+  lat      Int        @unique
+  lon      Int        @unique
   Survivor Survivor[]
 }
