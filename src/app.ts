@@ -10,6 +10,12 @@ function buildApp(): Application {
 
   app.use(router);
 
+  app.use((_, res) => {
+    res.status(404).json({
+      message: 'Not found',
+    });
+  });
+
   return app;
 }
 
